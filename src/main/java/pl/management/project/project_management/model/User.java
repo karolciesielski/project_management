@@ -1,76 +1,41 @@
-package pl.management.project.project_management;
+package pl.management.project.project_management.model;
 
-import lombok.Builder;
-import pl.management.project.project_management.model.Role;
+import lombok.Data;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-@Builder
+@Data
 @Entity
 public class User{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String login;
-    private String password;
-    private String email;
+    @NotBlank(message = "Displayed Name may not be blank")
     private String displayedName;
+    @NotBlank(message = "Login may not be blank")
+    private String login;
+    @Length(min = 6, message = "*Password must have min 6 chars")
+//    @Pattern(regexp = "^[A-Za-z0-9]+$", message = "Password must have upper case, lower case and digit")
+    @NotBlank(message = "Password may not be blank")
+    private String password;
+    @Email(message = "*Enter correct email address")
+    @NotBlank(message = "Email may not be blank")
+    private String email;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "user")
     List<Project> project;
 
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     @ManyToMany(cascade = CascadeType.ALL)
-    private Set<Role> roles;
+    private Set<Role> roles = new HashSet<>();
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getDisplayedName() {
-        return displayedName;
-    }
-
-    public void setDisplayedName(String displayedName) {
-        this.displayedName = displayedName;
-    }
-
-    public Set<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
-    }
+    private boolean active;
 }

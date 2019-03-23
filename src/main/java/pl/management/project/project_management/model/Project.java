@@ -1,7 +1,6 @@
-package pl.management.project.project_management;
+package pl.management.project.project_management.model;
 
 import lombok.Data;
-import pl.management.project.project_management.model.User;
 
 import javax.persistence.*;
 
@@ -12,7 +11,7 @@ public class Project{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     private String name;
     private String description;
