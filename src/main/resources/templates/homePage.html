@@ -29,20 +29,28 @@
 </head>
 
 <body>
-    <div class="limiter">
-        <h1 align="center"> Project Magament </h1>
-        <div class="container-login100" style="background-image: url('images/bg-01.jpg');">
+<div class="limiter">
+    <h1 align="center"> Project Magament </h1>
+    <div class="container-login100" style="background-image: url('images/bg-01.jpg');">
 
-            <form th:align="left" th:action="@{/login}" method="get">
-                <button class="btn btn-md btn-warning btn-block" type="Submit">Login</button>
-            </form>
 
-            <form th:align="right" th:action="@{/registration}" method="get">
-                <button class="btn btn-md btn-warning btn-block" type="Submit">Registration</button>
-            </form>
+        <form class="login100-form validate-form flex-sb flex-w" th:method="GET">
 
-        </div>
+            <a href="/login" class="btn-face m-b-20">
+                <div th:action="@{/login}">
+                    <button type="Submit">Login</button>
+                </div>
+            </a>
+
+            <a href="/registration" class="btn-face m-b-20">
+                <div th:action="@{/registration}">
+                    <button type="Submit">Registration</button>
+                </div>
+            </a>
+        </form>
+
     </div>
+</div>
 </body>
 
 </html>
