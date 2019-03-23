@@ -20,6 +20,15 @@ public class LoginController {
     @Autowired
     UserService userService;
 
+    @GetMapping("/")
+    public String home(Model model, Authentication auth){
+        if(auth != null) {
+            UserDetails principal = (UserDetails) auth.getPrincipal();
+            model.addAttribute("principal", principal);
+        }
+        return "homePage";
+    }
+
     @GetMapping("/login")
     public String login(Authentication auth, Model model) {
         if (auth != null) {
