@@ -17,7 +17,6 @@ import javax.validation.Valid;
 @Controller
 public class UserController {
 
-
     UserService userService;
 
     @Autowired
@@ -31,7 +30,7 @@ public class UserController {
             UserDetails principal = (UserDetails) auth.getPrincipal();
             model.addAttribute("principal", principal);
         }
-        // utworzenie UserPasswordForm
+        // create UserPasswordForm
         PasswordChangeForm passwordChangeForm = new PasswordChangeForm();
         model.addAttribute("passwordChangeForm",passwordChangeForm);
         return "changePassword";
@@ -49,9 +48,9 @@ public class UserController {
             model.addAttribute("principal", principal);
         }
         UserDetails loggedUser = (UserDetails) auth.getPrincipal();
-        // zlogowano na adres currentEmail
+        // logged in on currentEmail
         String currentEmail = loggedUser.getUsername();
-        // zwróć użytkownika - obiekt user którego zalogowano
+        // give back user - object user who's logged in
         User currentUser = userService.getUser(currentEmail);
         System.out.println("aktualne: "+currentUser.getPassword());
         System.out.println("zmienione: "+passwordChangeForm.getPassword1());

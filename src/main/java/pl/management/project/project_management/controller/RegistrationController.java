@@ -44,6 +44,6 @@ public class RegistrationController {
             model.addAttribute("successMessage", successMessage);
             model.addAttribute("user", new User());
         }
-        return "registration";
+        return "homePage";
     }
 }

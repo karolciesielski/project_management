@@ -15,7 +15,7 @@ import pl.management.project.project_management.service.UserService;
 
 
 @Controller
-public class LoginController {
+public class MainController {
 
     @Autowired
     UserService userService;
@@ -49,5 +49,4 @@ public class LoginController {
         modelAndView.setViewName("admin/home");
         return modelAndView;
     }
-
 }
