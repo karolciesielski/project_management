@@ -3,22 +3,56 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Registration Form</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--&lt;!&ndash;===============================================================================================&ndash;&gt;-->
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+    <!--&lt;!&ndash;===============================================================================================&ndash;&gt;-->
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!--&lt;!&ndash;===============================================================================================&ndash;&gt;-->
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--&lt;!&ndash;===============================================================================================&ndash;&gt;-->
+    <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!--===============================================================================================-->
+
+
     <link rel="stylesheet" type="text/css" th:href="@{/css/registration.css}"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<form th:action="@{/login}" method="get">
-    <button class="btn btn-md btn-warning btn-block" type="Submit">Powrót do strony logowania</button>
-</form>
+
+<br>
 
 <div class="container">
+    <form th:action="@{/login}" method="get">
+        <button class="btn btn-md btn-warning btn-block" type="Submit">Powrót do strony logowania</button>
+    </form>
+</div>
+<br>
+<div class="container" style="background-image: url('images/bg-01.jpg');">
     <div class="row">
+
         <div class="col-md-6 col-md-offset-3">
             <form th:align="center" autocomplete="off" action="#" th:action="@{/registration}"
                   th:object="${user}" method="post" class="form-horizontal"
                   role="form">
+
                 <h2> Registration Form</h2>
                 <div class="form-group">
                     <div class="col-sm-9">
@@ -63,6 +97,7 @@
 
             </form>
         </div>
+
     </div>
 </div>
 
