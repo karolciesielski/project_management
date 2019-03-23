@@ -5,9 +5,9 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--===============================================================================================-->
-	<link rel="icon" type="image/png" th:href="@{/images/icons/favicon.ico}"/>
+	<link rel="icon" type="image/png" href="login/images/icons/favicon.ico"/>
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" th:href="@{/vendor/bootstrap/css/bootstrap.min.css}">
+	<link rel="stylesheet" type="text/css" href="login/vendor/bootstrap/css/bootstrap.min.css">
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 	<!--===============================================================================================-->
@@ -30,9 +30,9 @@
 <body>
 
 <div class="limiter">
-	<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
+	<div class="container-login100" style="background-image: url('login/images/bg-01.jpg');">
 		<div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
-			<form class="login100-form validate-form flex-sb flex-w" th:action="@{/login-process}" th:method="GET">
+			<form class="login100-form validate-form flex-sb flex-w" th:action="@{/login/login-process}" th:method="GET">
 					<span class="login100-form-title p-b-53">
 						Sign In With
 					</span>
@@ -43,7 +43,7 @@
 				</a>
 
 				<a href="#" class="btn-google m-b-20">
-					<img src="images/icons/icon-google.png" alt="GOOGLE">
+					<img src="login/images/icons/icon-google.png" alt="GOOGLE">
 					Google
 				</a>
 
@@ -82,7 +82,7 @@
 							Not a member?
 						</span>
 
-					<a href="#" class="txt2 bo1">
+					<a href="/registration" class="txt2 bo1">
 						Sign up now
 					</a>
 				</div>
