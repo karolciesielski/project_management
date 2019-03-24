@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import pl.management.project.project_management.model.User;
+import pl.management.project.project_management.model.entity.User;
 import pl.management.project.project_management.service.UserService;
 
 import javax.validation.Valid;

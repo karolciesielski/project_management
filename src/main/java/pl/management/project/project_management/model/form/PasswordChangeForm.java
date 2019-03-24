@@ -10,6 +10,4 @@ public class PasswordChangeForm {
     private String password1;
     @Size(min = 6, max = 20, message = "hasło musi mieć od {min} do {max} znaków")
     private String password2;
-
-    public PasswordChangeForm() { }
 }

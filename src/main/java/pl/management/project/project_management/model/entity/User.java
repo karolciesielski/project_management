@@ -1,4 +1,4 @@
-package pl.management.project.project_management.model;
+package pl.management.project.project_management.model.entity;
 
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
