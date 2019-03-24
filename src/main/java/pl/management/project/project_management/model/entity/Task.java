@@ -1,12 +1,9 @@
-package pl.management.project.project_management.model;
+package pl.management.project.project_management.model.entity;
 
 import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 @Data
 @Entity
@@ -25,6 +22,4 @@ public class Task {
     private int storyPoints;
     private int progress;
     private long user;
-
-
 }
