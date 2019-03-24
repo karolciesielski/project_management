@@ -32,7 +32,7 @@ public class UserController {
         }
         // create UserPasswordForm
         PasswordChangeForm passwordChangeForm = new PasswordChangeForm();
-        model.addAttribute("passwordChangeForm",passwordChangeForm);
+        model.addAttribute("passwordChangeForm", passwordChangeForm);
         return "changePassword";
     }
     @PostMapping("/changePassword")
@@ -51,7 +51,7 @@ public class UserController {
         // logged in on currentEmail
         String currentEmail = loggedUser.getUsername();
         // give back user - object user who's logged in
-        User currentUser = userService.getUser(currentEmail);
+        User currentUser = userService.getUserByEmail(currentEmail);
         System.out.println("aktualne: "+currentUser.getPassword());
         System.out.println("zmienione: "+passwordChangeForm.getPassword1());
         // update

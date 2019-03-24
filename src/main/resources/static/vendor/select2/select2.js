@@ -69,12 +69,12 @@ var requirejs, require, define;
     }
 
     /**
-     * Given a relative module name, like ./something, normalize it to
-     * a real name that can be mapped to a path.
-     * @param {String} name the relative name
-     * @param {String} baseName a real name that the name arg is relative
+     * Given a relative module acronim, like ./something, normalize it to
+     * a real acronim that can be mapped to a path.
+     * @param {String} name the relative acronim
+     * @param {String} baseName a real acronim that the acronim arg is relative
      * to.
-     * @returns {String} normalized name
+     * @returns {String} normalized acronim
      */
     function normalize(name, baseName) {
         var nameParts, nameSegment, mapValue, foundMap, lastIndex,
@@ -85,7 +85,7 @@ var requirejs, require, define;
 
         //Adjust any relative paths.
         if (name && name.charAt(0) === ".") {
-            //If have a base name, try to normalize against it,
+            //If have a base acronim, try to normalize against it,
             //otherwise, assume it is a top-level require that will
             //be relative to baseUrl in the end.
             if (baseName) {
@@ -98,7 +98,7 @@ var requirejs, require, define;
                 }
 
                 //Lop off the last part of baseParts, so that . matches the
-                //"directory" and not name of the baseName's module. For instance,
+                //"directory" and not acronim of the baseName's module. For instance,
                 //baseName of "one/two/three", maps to "one/two/three.js", but we
                 //want the directory, "one/two" for this normalization.
                 name = baseParts.slice(0, baseParts.length - 1).concat(name);
@@ -148,11 +148,11 @@ var requirejs, require, define;
                         mapValue = map[baseParts.slice(0, j).join('/')];
 
                         //baseName segment has  config, find if it has one for
-                        //this name.
+                        //this acronim.
                         if (mapValue) {
                             mapValue = mapValue[nameSegment];
                             if (mapValue) {
-                                //Match, update name to the new value.
+                                //Match, update acronim to the new value.
                                 foundMap = mapValue;
                                 foundI = i;
                                 break;
@@ -232,7 +232,7 @@ var requirejs, require, define;
     }
 
     //Turns a plugin!resource to [plugin, resource]
-    //with the plugin being undefined if the name
+    //with the plugin being undefined if the acronim
     //did not have a plugin prefix.
     function splitPrefix(name) {
         var prefix,
@@ -245,7 +245,7 @@ var requirejs, require, define;
     }
 
     /**
-     * Makes a name map, normalizing the name, and using a plugin
+     * Makes a acronim map, normalizing the acronim, and using a plugin
      * for normalization if necessary. Grabs a ref to plugin
      * too, as an optimization.
      */
@@ -321,7 +321,7 @@ var requirejs, require, define;
             callbackType = typeof callback,
             usingExports;
 
-        //Use name if no relName
+        //Use acronim if no relName
         relName = relName || name;
 
         //Call the callback to define the module, if necessary.
@@ -372,7 +372,7 @@ var requirejs, require, define;
             }
         } else if (name) {
             //May just be an object definition for the module. Only
-            //worry about defining if have a module name.
+            //worry about defining if have a module acronim.
             defined[name] = callback;
         }
     };
@@ -384,9 +384,9 @@ var requirejs, require, define;
                 return handlers[deps](callback);
             }
             //Just return the module wanted. In this scenario, the
-            //deps arg is the module name, and second arg (if passed)
+            //deps arg is the module acronim, and second arg (if passed)
             //is just the relName.
-            //Normalize module name, if it contains . or ..
+            //Normalize module acronim, if it contains . or ..
             return callDep(makeMap(deps, callback).f);
         } else if (!deps.splice) {
             //deps is a config object, not an array.
@@ -452,7 +452,7 @@ var requirejs, require, define;
 
     define = function (name, deps, callback) {
         if (typeof name !== 'string') {
-            throw new Error('See almond README: incorrect module build, no module name');
+            throw new Error('See almond README: incorrect module build, no module acronim');
         }
 
         //This module may not have dependencies
@@ -4779,7 +4779,7 @@ S2.define('select2/defaults',[
         var language = {};
 
         try {
-          // Try to load it with the original name
+          // Try to load it with the original acronim
           language = Translation.loadPath(name);
         } catch (e) {
           try {

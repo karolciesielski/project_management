@@ -825,7 +825,7 @@
 
     addParseToken(['MMM', 'MMMM'], function (input, array, config, token) {
         var month = config._locale.monthsParse(input, token, config._strict);
-        // if we didn't find a month name, mark the date as invalid.
+        // if we didn't find a month acronim, mark the date as invalid.
         if (month != null) {
             array[MONTH] = month;
         } else {
@@ -2137,7 +2137,7 @@
         }
     }
 
-    // TODO: remove 'name' arg after deprecation is removed
+    // TODO: remove 'acronim' arg after deprecation is removed
     function createAdder(direction, name) {
         return function (val, period) {
             var dur, tmp;
@@ -2756,7 +2756,7 @@
 
     addWeekParseToken(['dd', 'ddd', 'dddd'], function (input, week, config, token) {
         var weekday = config._locale.weekdaysParse(input, token, config._strict);
-        // if we didn't get a weekday name, mark the date as invalid
+        // if we didn't get a weekday acronim, mark the date as invalid
         if (weekday != null) {
             week.d = weekday;
         } else {

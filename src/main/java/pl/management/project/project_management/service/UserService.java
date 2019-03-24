@@ -40,18 +40,19 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public User getUser(String email){
+    public User getUserByEmail(String email){
         User user = userRepository.findByEmail(email);
         return user;
     }
 
+    public User getUserByLogin(String login){
+        User user = userRepository.findByLogin(login);
+        return user;
+    }
+
     public User changePassword(PasswordChangeForm passwordChangeForm, Long id){
-        // metoda Hibernae do modyfikacji usera
         User modifiedUser = userRepository.getOne(id);
-        // kodowanie hasła
-        // przepisanie wartości hasła
         modifiedUser.setPassword(bCryptPasswordEncoder.encode(passwordChangeForm.getPassword1()));
-        // update
         return userRepository.save(modifiedUser);
     }
 

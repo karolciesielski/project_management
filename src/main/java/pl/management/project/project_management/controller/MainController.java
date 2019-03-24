@@ -20,6 +20,15 @@ public class MainController {
     @Autowired
     UserService userService;
 
+    @GetMapping("/board")
+    public String board(Model model, Authentication auth){
+        if(auth != null) {
+            UserDetails principal = (UserDetails) auth.getPrincipal();
+            model.addAttribute("principal", principal);
+        }
+    return "boardPage";
+    }
+
     @GetMapping("/")
     public String home(Model model, Authentication auth){
         if(auth != null) {
